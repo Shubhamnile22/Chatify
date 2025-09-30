@@ -6,11 +6,11 @@ import { ENV } from '../lib/env.js';
 import cloudinary from '../lib/cloudinary.js';
 
 export const signup = async (req, res) => {
-  const { fullname, email, password } = req.body;
+  const { fullName, email, password } = req.body;
 
   try {
     // validation
-    if (!fullname || !email || !password) {
+    if (!fullName || !email || !password) {
       return res.status(400).json({ message: 'All fields are required' });
     }
 
@@ -38,7 +38,7 @@ export const signup = async (req, res) => {
 
     // create user
     const newUser = await User.create({
-      fullname,
+      fullName,
       email,
       password: hashedPassword,
     });
@@ -57,7 +57,7 @@ export const signup = async (req, res) => {
 
       res.status(201).json({
         _id: newUser._id,
-        fullname: newUser.fullname,
+        fullName: newUser.fullName,
         email: newUser.email,
         profilePic: newUser.profilePic,
       });
@@ -66,7 +66,7 @@ export const signup = async (req, res) => {
       try {
         await sendWelcomeEmail(
           savedUser.email,
-          savedUser.fullname,
+          savedUser.fullName,
           ENV.CLIENT_URL
         );
       } catch (error) {
@@ -108,7 +108,7 @@ export const login = async (req, res) => {
 
     res.status(200).json({
       _id: user._id,
-      fullname: user.fullname,
+      fullName: user.fullName,
       email: user.email,
       profilePic: user.profilePic,
     });
