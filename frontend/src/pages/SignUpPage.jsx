@@ -12,7 +12,7 @@ import { Link } from 'react-router';
 
 function SignUpPage() {
   const [formData, setFormData] = useState({
-    fullname: '',
+    fullName: '',
     email: '',
     password: '',
   });
@@ -50,9 +50,9 @@ function SignUpPage() {
 
                       <input
                         type="text"
-                        value={formData.fullname}
+                        value={formData.fullName}
                         onChange={(e) =>
-                          setFormData({ ...formData, fullname: e.target.value })
+                          setFormData({ ...formData, fullName: e.target.value })
                         }
                         className="input"
                         placeholder="John Doe"
