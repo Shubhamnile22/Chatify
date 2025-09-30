@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import useKeyboardSound from '../hooks/useKeyBoardSound';
+import useKeyboardSound from '../hooks/useKeyboardSound';
 import { useChatStore } from '../store/useChatStore';
 import toast from 'react-hot-toast';
 import { ImageIcon, SendIcon, XIcon } from 'lucide-react';
@@ -74,7 +74,7 @@ function MessageInput() {
             setText(e.target.value);
             isSoundEnabled && playRandomKeyStrokeSound();
           }}
-          className="flex-1 bg-slate-800/50 border border-slate-700/50 rounded-lg py-2 px-4"
+          className="flex-1 bg-slate-800/50 border border-slate-700/50 rounded-lg text-white py-2 px-4"
           placeholder="Type your message..."
         />
 

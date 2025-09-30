@@ -6,8 +6,9 @@ import Path from 'path';
 import { connectDB } from './lib/db.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { app, server } from './lib/socket.js';
 
-const app = express();
+//
 
 const __dirname = Path.resolve();
 
@@ -28,7 +29,7 @@ if (ENV.NODE_ENV === 'production') {
   });
 }
 
-app.listen(3000, () => {
+server.listen(3000, () => {
   console.log('Server running on port: ', PORT);
   connectDB();
 });
